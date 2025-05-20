@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m2-coursework"
+version = "0.1.0"
+description = "LoRA Fine-Tuning on Qwen2.5 for Time Series Forecasting (M2 Coursework)"
+authors = [
+    { name = "Xiaoye Wang", email = "xw453@cam.ac.uk" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.6.0",
+    "torchvision",
+    "torchaudio",
+    "transformers>=4.49.0",
+    "accelerate>=1.4.0",
+    "numpy>=2.2.3",
+    "h5py>=3.13.0",
+    "tqdm",
+    "scikit-learn",
+    "scipy",
+    "matplotlib",
+    "calflops",
+    "wandb",
+    "huggingface-hub>=0.29.0",
+    "safetensors>=0.5.0",
+    "protobuf>=5.0.0",
+    "networkx>=3.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "isort",
+    "jupyter",
+    "ipykernel"
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.isort]
+profile = "black"
